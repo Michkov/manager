@@ -20,6 +20,7 @@ export const userPermissionsGrants: Grants = grantsFactory.build({
     add_databases: false,
     add_volumes: false,
     add_vpcs: false,
+    add_lkes: false,
     longview_subscription: false,
   },
   database: grantFactory.buildList(1, {
@@ -56,4 +57,8 @@ export const userPermissionsGrants: Grants = grantsFactory.build({
     permissions: null,
   }),
   vpc: grantFactory.buildList(1, { label: randomLabel(), permissions: null }),
+  lkecluster: grantFactory.buildList(1, {
+    label: randomLabel(),
+    permissions: null,
+   }),
 });

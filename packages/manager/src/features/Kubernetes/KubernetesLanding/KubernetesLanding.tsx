@@ -24,8 +24,8 @@ import { TransferDisplay } from 'src/components/TransferDisplay/TransferDisplay'
 import { useOrder } from 'src/hooks/useOrder';
 import { usePagination } from 'src/hooks/usePagination';
 import { useKubernetesClustersQuery } from 'src/queries/kubernetes';
-import { useProfile } from 'src/queries/profile/profile';
 import { getErrorStringOrDefault } from 'src/utilities/errorUtils';
+import { useRestrictedGlobalGrantCheck } from 'src/hooks/useRestrictedGlobalGrantCheck';
 
 import { KubernetesClusterRow } from '../ClusterList/KubernetesClusterRow';
 import { DeleteKubernetesClusterDialog } from '../KubernetesClusterDetail/DeleteKubernetesClusterDialog';
@@ -93,9 +93,9 @@ export const KubernetesLanding = () => {
     ['+order_by']: orderBy,
   };
 
-  const { data: profile } = useProfile();
-
-  const isRestricted = profile?.restricted ?? false;
+  const isRestricted = useRestrictedGlobalGrantCheck({
+    globalGrantType: 'add_lkes'
+  });
 
   const { data, error, isLoading } = useKubernetesClustersQuery(
     {
@@ -160,7 +160,7 @@ export const KubernetesLanding = () => {
     return <CircleProgress />;
   }
 
-  if (isRestricted || data?.results === 0) {
+  if (data?.results === 0) {
     return <KubernetesEmptyState isRestricted={isRestricted} />;
   }
 

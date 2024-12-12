@@ -141,6 +141,7 @@ class UserPermissions extends React.Component<CombinedProps, State> {
     'longview',
     'database',
     'vpc',
+    'lkecluster',
   ];
 
   entitySetAllTo = (entity: GrantType, value: GrantLevel) => () => {
@@ -248,6 +249,7 @@ class UserPermissions extends React.Component<CombinedProps, State> {
     'add_stackscripts',
     'add_volumes',
     'add_vpcs',
+    'add_lkes',
     'cancel_account',
     'longview_subscription',
   ];
@@ -476,6 +478,7 @@ class UserPermissions extends React.Component<CombinedProps, State> {
       add_stackscripts: 'Can create StackScripts under this account',
       add_volumes: 'Can add Block Storage Volumes to this account ($)',
       add_vpcs: 'Can add VPCs to this account',
+      add_lkes: 'Can add Kubernetes Clusters to this account ($)',
       cancel_account: 'Can cancel the entire account',
       longview_subscription:
         'Can modify this account\u{2019}s Longview subscription ($)',

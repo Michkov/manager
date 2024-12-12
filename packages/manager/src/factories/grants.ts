@@ -41,6 +41,7 @@ export const grantsFactory = Factory.Sync.makeFactory<Grants>({
     add_stackscripts: true,
     add_volumes: true,
     add_vpcs: true,
+    add_lkes: true,
     cancel_account: false,
     child_account_access: false,
     longview_subscription: true,
@@ -104,4 +105,12 @@ export const grantsFactory = Factory.Sync.makeFactory<Grants>({
       permissions: null,
     },
   ],
+  lkecluster: [
+    {
+      id: 123,
+      label: 'example-entity',
+      permissions: 'read_only',
+    },
+  ],
+
 });

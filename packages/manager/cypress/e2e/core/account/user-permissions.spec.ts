@@ -123,6 +123,7 @@ const entityLabelsFromGrants = (grants: Grants) => {
     ...grants.stackscript,
     ...grants.volume,
     ...grants.vpc,
+    ...grants.lkecluster,
   ].map((grant: Grant) => grant.label);
 };
 
@@ -290,6 +291,7 @@ describe('User permission management', () => {
         add_stackscripts: true,
         add_volumes: true,
         add_vpcs: true,
+        add_lkes: true,
         longview_subscription: true,
       },
     };

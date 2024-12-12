@@ -197,6 +197,7 @@ export type GlobalGrantTypes =
   | 'add_stackscripts'
   | 'add_volumes'
   | 'add_vpcs'
+  | 'add_lkes'
   | 'cancel_account'
   | 'child_account_access'
   | 'longview_subscription';
@@ -215,7 +216,8 @@ export type GrantType =
   | 'volume'
   | 'database'
   | 'firewall'
-  | 'vpc';
+  | 'vpc'
+  | 'lkecluster';
 
 export type Grants = GlobalGrants & Record<GrantType, Grant[]>;
 
